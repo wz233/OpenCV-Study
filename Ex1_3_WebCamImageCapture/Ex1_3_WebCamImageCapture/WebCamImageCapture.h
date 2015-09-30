@@ -1,0 +1,9 @@
+#ifndef __WEBCAMIMAGECAPTURE_H__
+#define __WEBCAMIMAGECAPTURE_H__
+
+#define OPENCV_C_MODE       0
+#define OPENCV_C_PLUS_MODE  1
+
+#define CAM_CAP_MODE_SEL    OPENCV_C_PLUS_MODE   
+
+#endif
