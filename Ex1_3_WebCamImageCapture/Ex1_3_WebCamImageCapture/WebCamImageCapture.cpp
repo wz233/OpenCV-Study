@@ -6,6 +6,7 @@
 
 #include "WebCamImageCapture.h"
 
+
 #if (CAM_CAP_MODE_SEL == OPENCV_C_PLUS_MODE)
   #include <opencv2\opencv.hpp>
   using namespace cv;
@@ -28,6 +29,7 @@ void main(void) {
 
 #if (CAM_CAP_MODE_SEL == OPENCV_C_MODE)
   // webcam = cvCreateCameraCapture(0);
+  webcam = cvCaptureFromCAM(CV_CAP_ANY);
   webcam = cvCaptureFromCAM(CV_CAP_ANY);
   // webcam = cvCreateCameraCapture(200);
   if (!webcam) {
@@ -74,15 +76,32 @@ void main(void) {
   }
 
   Mat edges;
-  namedWindow("edges", 1);
+  Mat frame;
+
+  IplImage *frm_ptr = cvCloneImage(&(IplImage)frame);   /*!> This is a good way to convert Mat to IplImage */
+  
+  // *frm_ptr = IplImage(frame);
+
+  namedWindow("Frame Feed", 1);
+  cvNamedWindow("Test", 1);
+
   for (;;)
   {
-    Mat frame;
+    
     cap >> frame; // get a new frame from camera
+
+    frm_ptr = cvCloneImage(&(IplImage)frame);
+
+#if (0)
     cvtColor(frame, edges, CV_BGR2GRAY);
     GaussianBlur(edges, edges, Size(7, 7), 1.5, 1.5);
     Canny(edges, edges, 0, 30, 3);
     imshow("edges", edges);
+#endif
+
+    imshow("Frame Feed", frame);                   /*!> Use C-Plus Function */
+    cvShowImage("C Mode Frame Feed", frm_ptr);     /*!> Use C Function */ 
+
     if (waitKey(30) >= 0) break;
   }
   // the camera will be deinitialized automatically in VideoCapture destructor
