@@ -13,33 +13,24 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\AIPCV">
-      <UniqueIdentifier>{73135dbc-c832-42fa-9665-73290e6d5d8d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="app_main_aipcv_thrglh.cpp">
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="aipcv_common.cpp">
-      <Filter>Source Files\AIPCV</Filter>
+    <ClCompile Include="BitWiseOperationTest.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="aipcv_thr_glh.cpp">
-      <Filter>Source Files\AIPCV</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="app_main_aipcv_thrglh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="aipcv_common.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="aipcv_thr_glh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="aipcv_type.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
